@@ -34,13 +34,13 @@ public class Application {
     return db;
   }
   
-
+/*
   @Bean
   public Jackson2ObjectMapperBuilder objectMapperBuilder() {
       Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
       builder.serializerByType(PagedList.class, new PagedListSerializer());
       builder.serializerByType(Employee.class, new EmployeeSerializer());
       return builder;
-  }
+  }*/
   
 }
