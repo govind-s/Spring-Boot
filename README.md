@@ -1,4 +1,4 @@
-# Spring-Boot-Jdbc-Tenmplate
+# Spring-Boot-Jdbc-Template
 
 JdbcTempalte example using spring boot and embedded database. 
 
