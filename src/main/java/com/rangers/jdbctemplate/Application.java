@@ -5,15 +5,9 @@ import javax.sql.DataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-
-import com.rangers.jdbctemplate.model.Employee;
-import com.rangers.jdbctemplate.model.EmployeeSerializer;
-import com.rangers.jdbctemplate.model.PagedList;
-import com.rangers.jdbctemplate.model.PagedListSerializer;
 
 @SpringBootApplication
 public class Application {
@@ -34,13 +28,13 @@ public class Application {
     return db;
   }
   
-
+/*
   @Bean
   public Jackson2ObjectMapperBuilder objectMapperBuilder() {
       Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
       builder.serializerByType(PagedList.class, new PagedListSerializer());
       builder.serializerByType(Employee.class, new EmployeeSerializer());
       return builder;
-  }
+  }*/
   
 }
