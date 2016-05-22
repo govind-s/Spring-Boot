@@ -5,16 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public class PagedList<E> implements List<E>  {
 
-  @JsonProperty
   private List<E> list;
   
-  @JsonProperty
   private long totalRecords;
 
   public PagedList(List<E> list) {
