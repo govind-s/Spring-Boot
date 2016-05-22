@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rangers.jdbctemplate.model.Employee;
+import com.rangers.jdbctemplate.model.PageFilter;
 import com.rangers.jdbctemplate.model.service.IEmployeeService;
 
 @RestController
@@ -22,11 +23,19 @@ public class EmployeeController {
   @Autowired
   private IEmployeeService employeeService;
 
+  /**
+   * Sample request -
+   * http://localhost:8085/api/employees?departmentId=2&limit=1&offset=1&pagedList=true
+   * 
+   * @param departmentId
+   * @param pageFilter
+   * @return
+   */
   @RequestMapping(method = RequestMethod.GET)
   @ResponseBody
-  public List<Employee> getEmployees(int departmentId) {
+  public List<Employee> getEmployees(int departmentId, PageFilter pageFilter) {
 
-    return employeeService.getDepartmentEmployees(departmentId);
+    return employeeService.getDepartmentEmployees(departmentId, pageFilter);
   }
 
   @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
@@ -34,13 +43,13 @@ public class EmployeeController {
 
     return employeeService.getEmployee(employeeId);
   }
-  
+
   @RequestMapping(method = RequestMethod.POST)
   public Employee addEmployee(@RequestBody Employee employee) {
-    
+
     return employeeService.addEmployee(employee);
   }
-  
+
   @RequestMapping(value = "/{employeeId}", method = RequestMethod.PUT)
   public Employee updateEmployee(@PathVariable int employeeId, @RequestBody Employee newEmployee) {
     Employee oldEmployee = employeeService.getEmployee(employeeId);
@@ -55,7 +64,7 @@ public class EmployeeController {
 
     return null;
   }
-  
+
   @RequestMapping(value = "/{employeeId}", method = RequestMethod.DELETE)
   @ResponseStatus(code = HttpStatus.OK)
   public void delete(@PathVariable int employeeId) {

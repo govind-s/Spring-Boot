@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.rangers.jdbctemplate.model.Employee;
+import com.rangers.jdbctemplate.model.PageFilter;
 import com.rangers.jdbctemplate.model.dao.IEmployeeDao;
 
 @Service
@@ -17,8 +18,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
   private IEmployeeDao employeeDao;
 
   @Override
-  public List<Employee> getDepartmentEmployees(int departmentId) {
-    return employeeDao.getDepartmentEmployees(departmentId);
+  public List<Employee> getDepartmentEmployees(int departmentId, PageFilter pageFilter) {
+    return employeeDao.getDepartmentEmployees(departmentId, pageFilter);
   }
 
   @Override

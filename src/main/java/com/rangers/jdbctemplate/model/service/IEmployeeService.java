@@ -3,10 +3,11 @@ package com.rangers.jdbctemplate.model.service;
 import java.util.List;
 
 import com.rangers.jdbctemplate.model.Employee;
+import com.rangers.jdbctemplate.model.PageFilter;
 
 public interface IEmployeeService {
 
-  public List<Employee> getDepartmentEmployees(int departmentId);
+  public List<Employee> getDepartmentEmployees(int departmentId, PageFilter pageFilter);
 
   public Employee getEmployee(int employeeId);
 
