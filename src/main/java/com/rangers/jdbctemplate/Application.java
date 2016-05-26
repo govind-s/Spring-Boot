@@ -1,5 +1,7 @@
 package com.rangers.jdbctemplate;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.boot.SpringApplication;
@@ -12,7 +14,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import com.rangers.jdbctemplate.model.Employee;
 import com.rangers.jdbctemplate.model.EmployeeSerializer;
-import com.rangers.jdbctemplate.model.PagedList;
 import com.rangers.jdbctemplate.model.PagedListSerializer;
 
 @SpringBootApplication
@@ -38,7 +39,7 @@ public class Application {
   @Bean
   public Jackson2ObjectMapperBuilder objectMapperBuilder() {
       Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
-      builder.serializerByType(PagedList.class, new PagedListSerializer());
+      builder.serializerByType(List.class, new PagedListSerializer());
       builder.serializerByType(Employee.class, new EmployeeSerializer());
       return builder;
   }
